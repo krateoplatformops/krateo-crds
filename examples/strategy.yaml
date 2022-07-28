@@ -1,0 +1,9 @@
+apiVersion: authn.krateo.io/v1alpha1
+kind: Strategy
+metadata:
+  name: authn-strategy-example
+spec:
+  name: Username and password
+  config: eyJ1c2VybmFtZSI6ImtyYXRlbyIsInBhc3N3b3JkIjoia3JhdGVvIn0=
+  strategy: basic
+  type: form

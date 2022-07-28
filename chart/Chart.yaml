@@ -1,0 +1,8 @@
+apiVersion: v2
+name: authn-krateo-crds
+description: Krateo PlatformOps AuthN CRDs
+type: application
+icon: "https://github.com/projectkerberus/kerberus-dashboard/blob/main/docs/media/square_black_logo.png"
+
+version: VERSION
+appVersion: VERSION
