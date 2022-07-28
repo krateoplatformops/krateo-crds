@@ -1,0 +1,313 @@
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: awsstacks.new-templates.krateo.io
+spec:
+  group: new-templates.krateo.io
+  names:
+    kind: AWSStack
+    plural: awsstacks
+  versions:
+    - name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              required:
+                - title
+                - description
+                - icon
+                - owner
+                - tags
+              properties:
+                title:
+                  description: Krateo template title
+                  type: string
+                  default: AWS Stack template
+                description:
+                  description: Krateo template description
+                  type: string
+                  default: Krateo Template Sample for AWS Stack
+                icon:
+                  description: Krateo template icon
+                  type: string
+                  default: fa-brands fa-aws
+                owner:
+                  description: Krateo template owner
+                  type: string
+                  default: mauro.sala@kiratech.it
+                tags:
+                  description: Krateo template tags
+                  type: array
+                  items:
+                    type: string
+                  default:
+                    - aws
+                    - eks
+                    - rds
+                    - stack
+                links:
+                  description: Krateo template plugins
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      icon:
+                        type: string
+                      type:
+                        type: string
+                      value:
+                        type: string
+                  default:
+                    - value: https://<% provider %>/<% organizationName %>/<% repositoryName %>
+                      title: <% organizationName %>/<% repositoryName %>
+                      icon: "fa-brands fa-git"
+                      type: url
+                    - value: https://kiratech.awsapps.com/start#/
+                      title: AWS Console
+                      icon: "fa-brands fa-aws"
+                      type: url
+                plugins:
+                  description: Krateo template plugins
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      icon:
+                        type: string
+                      type:
+                        type: string
+                      value:
+                        type: string
+                      values:
+                        type: array
+                        items:
+                          type: string
+                      endpointName:
+                        type: string
+                  default:
+                    - title: resources
+                      value: <% deploymentId %>-awsstack
+                      type: argocd
+                      icon: fa-solid fa-cookie
+                      endpointName: argocd
+                    - title: documentation
+                      values:
+                        - README.md
+                      type: doc
+                      icon: fa-solid fa-book-skull
+                      endpointName: github.com
+                    - title: kubernetes
+                      value: "deploymentId=<% deploymentId %>"
+                      type: kubernetes
+                      icon: fa-brands fa-docker
+                deployment:
+                  description: Krateo deployment widget
+                  type: object
+                  properties:
+                    title:
+                      description: Krateo deployment details
+                      type: string
+                      default: Krateo AWS Stack details
+                    name:
+                      description: Krateo deployment name
+                      type: string
+                    namespace:
+                      description: Krateo deployment namespace
+                      type: string
+                    owner:
+                      description: Krateo deployment owner
+                      type: string
+                    provider:
+                      type: object
+                      properties:
+                        inherited:
+                          type: boolean
+                        reference:
+                          type: string
+                        values:
+                          type: array
+                          items:
+                            type: string
+                    organizationName:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        value:
+                          type: string
+                    repositoryName:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        value:
+                          type: string
+                widgets:
+                  description: Krateo template widgets
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        description: Krateo template widget title
+                        type: string
+                      description:
+                        description: Krateo template widget description
+                        type: string
+                      properties:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            title:
+                              type: string
+                            description:
+                              type: string
+                            # shape:
+                            #   type: string
+                            style:
+                              type: string
+                            key:
+                              type: string
+                            content:
+                              type: object
+                              additionalProperties: true
+                            contents:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  title:
+                                    type: string
+                                  description:
+                                    type: string
+                                  content:
+                                    type: object
+                                    additionalProperties: true
+                                  type:
+                                    type: string
+                            required:
+                              type: boolean
+                            type:
+                              type: string
+                            default:
+                              type: object
+                              additionalProperties: true
+                  default:
+                    - title: AWS Stack - EKS details
+                      description: EKS cluster name and network name.
+                      properties:
+                        - type: box
+                          style: info
+                          content:
+                            value: EKS cluster name and network name.
+                        - title: Cluster Name
+                          type: string
+                          required: true
+                          key: clusterName
+                          description: The name of the cluster
+                        - title: Network name
+                          type: string
+                          required: true
+                          key: networkName
+                          description: The VPC network to use
+                        - title: Cluster Nodes
+                          type: number
+                          required: true
+                          key: clusterNodes
+                          default:
+                            value: 3
+                          description: The number of nodes in the cluster
+                        - title: Max Cluster Nodes
+                          type: number
+                          required: true
+                          key: maxClusterNodes
+                          default:
+                            value: 5
+                          description: The maximum number of nodes in the cluster
+                    - title: Database
+                      description:  Please specify the database name, region, storage type, instance class and engine version.
+                      properties:
+                        - type: box
+                          style: warning
+                          content:
+                            value:  Please specify the database name, region, storage type, instance class and engine version.
+                        - title: Rds Name
+                          type: string
+                          required: true
+                          key: rdsName
+                          description: The name of the RDS
+                        - title: Rds Instance Class
+                          type: radio
+                          required: true
+                          key: rdsInstanceClass
+                          description: The instance class of the RDS
+                          default:
+                            value: db.t3.micro
+                          contents:
+                            - title: db.t3.micro
+                              content:
+                                value: db.t3.micro
+                              description: 1 core\n2 vCPU\n1 GB of memory
+                            - title: db.t3.medium
+                              content:
+                                value: db.t3.medium
+                              description: 1 core\n2 vCPU\n2 GB of memory
+                            - title: db.t3.large
+                              content:
+                                value: db.t3.large
+                              description: 2 core\n2 vCPU\n8 GB of memory
+                        - title: Rds Engine
+                          type: string
+                          required: true
+                          key: rdsEngine
+                          description: The engine of the RDS
+                          default:
+                            value: postgres
+                        - title: Rds Engine Version
+                          type: string
+                          required: true
+                          key: rdsEngineVersion
+                          description: The engine of the RDS
+                          default:
+                            value: '13.4'
+                        - title: Rds Disk Size
+                          type: number
+                          required: true
+                          key: rdsDataDiskSizeGb
+                          description: The size of the RDS disk
+                          default:
+                            value: 10
+                        - title: Rds Region
+                          type: string
+                          required: true
+                          key: rdsDataDiskSizeGb
+                          description: The region of the RDS
+                          default:
+                            value: eu-central-1
+                        - title: Rds Storage Type
+                          type: radio
+                          required: true
+                          key: rdsStorageType
+                          description: The storage type of the RDS
+                          default:
+                            value: standard
+                          contents:
+                            - content:
+                                value: standard
+                            - content:
+                                value: gp2
+                            - content:
+                                value: io1
