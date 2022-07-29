@@ -23,7 +23,7 @@ jobs:
       - run: go generate ./...
 
       - name: Set tag
-        run: echo "::set-output name=VERSION_TAG::$(git describe --dirty --always --tags | sed 's/-/./2' | sed 's/-/./2' )"
+        run: echo "::set-output name=VERSION_TAG::$(git describe --always --tags | sed 's/-/./2' | sed 's/-/./2' )"
         id: tagger
 
       - name: Replace Version in Chart.yaml
