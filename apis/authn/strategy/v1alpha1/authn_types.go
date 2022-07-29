@@ -25,9 +25,6 @@ type StrategyParams struct {
 // +kubebuilder:object:root=true
 
 // A Strategy is a AuthN API type.
-// +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status",priority=1
-// +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status",priority=1
-// +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={managed,krateo,authn}
 type Strategy struct {
 	metav1.TypeMeta   `json:",inline"`

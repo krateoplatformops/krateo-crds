@@ -1,0 +1,370 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.9.2
+  creationTimestamp: null
+  name: templates.templates.krateo.io
+spec:
+  group: templates.krateo.io
+  names:
+    categories:
+    - managed
+    - krateo
+    - templates
+    kind: Template
+    listKind: TemplateList
+    plural: templates
+    singular: template
+  scope: Cluster
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: A Template is a Krateo template API type.
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              deployment:
+                description: 'Deployment: template deployment'
+                properties:
+                  name:
+                    description: 'Name:'
+                    properties:
+                      cost:
+                        description: 'Cost:'
+                        type: string
+                      default:
+                        description: 'Default:'
+                        type: string
+                      description:
+                        description: 'Description:'
+                        type: string
+                      readOnly:
+                        description: 'ReadOnly:'
+                        type: boolean
+                      required:
+                        description: 'Required:'
+                        type: boolean
+                      title:
+                        description: 'Title:'
+                        type: string
+                      type:
+                        description: 'Type:'
+                        type: string
+                      value:
+                        description: 'Value:'
+                        type: string
+                      visible:
+                        description: 'Visible:'
+                        type: boolean
+                    type: object
+                  namespace:
+                    description: 'Namespace:'
+                    properties:
+                      cost:
+                        description: 'Cost:'
+                        type: string
+                      default:
+                        description: 'Default:'
+                        type: string
+                      description:
+                        description: 'Description:'
+                        type: string
+                      readOnly:
+                        description: 'ReadOnly:'
+                        type: boolean
+                      required:
+                        description: 'Required:'
+                        type: boolean
+                      title:
+                        description: 'Title:'
+                        type: string
+                      type:
+                        description: 'Type:'
+                        type: string
+                      value:
+                        description: 'Value:'
+                        type: string
+                      visible:
+                        description: 'Visible:'
+                        type: boolean
+                    type: object
+                  organization:
+                    description: 'Organization:'
+                    properties:
+                      cost:
+                        description: 'Cost:'
+                        type: string
+                      default:
+                        description: 'Default:'
+                        type: string
+                      description:
+                        description: 'Description:'
+                        type: string
+                      readOnly:
+                        description: 'ReadOnly:'
+                        type: boolean
+                      required:
+                        description: 'Required:'
+                        type: boolean
+                      title:
+                        description: 'Title:'
+                        type: string
+                      type:
+                        description: 'Type:'
+                        type: string
+                      value:
+                        description: 'Value:'
+                        type: string
+                      visible:
+                        description: 'Visible:'
+                        type: boolean
+                    type: object
+                  owner:
+                    description: 'Owner:'
+                    type: string
+                  provider:
+                    description: Provider
+                    properties:
+                      inherited:
+                        description: 'Inherited:'
+                        type: boolean
+                      readOnly:
+                        description: 'ReadOnly:'
+                        type: boolean
+                      reference:
+                        description: 'Reference:'
+                        type: string
+                      values:
+                        description: 'Values:'
+                        items:
+                          type: string
+                        type: array
+                      visible:
+                        description: 'Visible:'
+                        type: boolean
+                    required:
+                    - reference
+                    type: object
+                  repository:
+                    description: 'Repository:'
+                    properties:
+                      cost:
+                        description: 'Cost:'
+                        type: string
+                      default:
+                        description: 'Default:'
+                        type: string
+                      description:
+                        description: 'Description:'
+                        type: string
+                      readOnly:
+                        description: 'ReadOnly:'
+                        type: boolean
+                      required:
+                        description: 'Required:'
+                        type: boolean
+                      title:
+                        description: 'Title:'
+                        type: string
+                      type:
+                        description: 'Type:'
+                        type: string
+                      value:
+                        description: 'Value:'
+                        type: string
+                      visible:
+                        description: 'Visible:'
+                        type: boolean
+                    type: object
+                  title:
+                    description: 'Title:'
+                    type: string
+                required:
+                - name
+                - namespace
+                - organization
+                - provider
+                - repository
+                - title
+                type: object
+              description:
+                description: 'Description: template description'
+                type: string
+              icon:
+                description: 'Icon: template icon'
+                type: string
+              links:
+                description: 'Links: template plugins'
+                items:
+                  description: Link to Krateo template plugins
+                  properties:
+                    icon:
+                      description: 'Icon: link icon'
+                      type: string
+                    title:
+                      description: 'Title: link title'
+                      type: string
+                    type:
+                      description: 'Type: link type'
+                      type: string
+                    value:
+                      description: 'Value: link value (url)'
+                      type: string
+                  required:
+                  - title
+                  - type
+                  - value
+                  type: object
+                type: array
+              owner:
+                description: 'Owner: template owner'
+                type: string
+              plugins:
+                description: 'Plugins: template plugins'
+                items:
+                  properties:
+                    endpointName:
+                      description: 'EndpointName:'
+                      type: string
+                    icon:
+                      description: 'Icon: link icon'
+                      type: string
+                    title:
+                      description: 'Title: link title'
+                      type: string
+                    type:
+                      description: 'Type: link type'
+                      type: string
+                    value:
+                      description: 'Value: link value (url)'
+                      type: string
+                    values:
+                      description: 'Values:'
+                      items:
+                        type: string
+                      type: array
+                  required:
+                  - title
+                  - type
+                  - value
+                  type: object
+                type: array
+              tags:
+                description: 'Tags: template tags'
+                items:
+                  type: string
+                type: array
+              title:
+                description: 'Title: template title'
+                type: string
+              widgets:
+                description: 'Widgets:'
+                items:
+                  properties:
+                    description:
+                      description: 'Description: template description'
+                      type: string
+                    properties:
+                      description: 'Properties:'
+                      items:
+                        properties:
+                          cost:
+                            description: 'Cost:'
+                            type: string
+                          default:
+                            description: 'Default:'
+                            type: string
+                          description:
+                            description: 'Description:'
+                            type: string
+                          key:
+                            description: 'Key:'
+                            type: string
+                          readOnly:
+                            description: 'ReadOnly:'
+                            type: boolean
+                          required:
+                            description: 'Required:'
+                            type: boolean
+                          style:
+                            description: 'Style:'
+                            type: string
+                          title:
+                            description: 'Title:'
+                            type: string
+                          type:
+                            description: 'Type:'
+                            type: string
+                          value:
+                            description: 'Value:'
+                            type: string
+                          values:
+                            description: 'Items:'
+                            items:
+                              properties:
+                                cost:
+                                  description: 'Cost:'
+                                  type: string
+                                default:
+                                  description: 'Default:'
+                                  type: string
+                                description:
+                                  description: 'Description:'
+                                  type: string
+                                readOnly:
+                                  description: 'ReadOnly:'
+                                  type: boolean
+                                required:
+                                  description: 'Required:'
+                                  type: boolean
+                                title:
+                                  description: 'Title:'
+                                  type: string
+                                type:
+                                  description: 'Type:'
+                                  type: string
+                                value:
+                                  description: 'Value:'
+                                  type: string
+                                visible:
+                                  description: 'Visible:'
+                                  type: boolean
+                              type: object
+                            type: array
+                          visible:
+                            description: 'Visible:'
+                            type: boolean
+                        type: object
+                      type: array
+                    title:
+                      description: 'Title: template title'
+                      type: string
+                  required:
+                  - properties
+                  - title
+                  type: object
+                type: array
+            required:
+            - title
+            - widgets
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
