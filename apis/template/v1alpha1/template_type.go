@@ -176,9 +176,9 @@ type TemplateSpec struct {
 	// +optional
 	Url string `json:"url,omitempty"`
 	
-	// endpointName: endpoint name for this template
+	// EndpointName: endpoint name for this template
 	// +optional
-	endpointName string `json:"endpointName,omitempty"`
+	EndpointName string `json:"endpointName,omitempty"`
 
 	// Tags: template tags
 	// +optional
