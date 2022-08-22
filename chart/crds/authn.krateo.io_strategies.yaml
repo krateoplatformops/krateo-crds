@@ -19,16 +19,7 @@ spec:
     singular: strategy
   scope: Cluster
   versions:
-  - additionalPrinterColumns:
-    - jsonPath: .status.conditions[?(@.type=='Ready')].status
-      name: READY
-      priority: 1
-      type: string
-    - jsonPath: .status.conditions[?(@.type=='Synced')].status
-      name: SYNCED
-      priority: 1
-      type: string
-    name: v1alpha1
+  - name: v1alpha1
     schema:
       openAPIV3Schema:
         description: A Strategy is a AuthN API type.
@@ -72,4 +63,3 @@ spec:
         type: object
     served: true
     storage: true
-    subresources: {}

@@ -205,6 +205,9 @@ spec:
               description:
                 description: 'Description: template description'
                 type: string
+              endpointName:
+                description: 'EndpointName: endpoint name for this template'
+                type: string
               icon:
                 description: 'Icon: template icon'
                 type: string
@@ -271,6 +274,9 @@ spec:
                 type: array
               title:
                 description: 'Title: template title'
+                type: string
+              url:
+                description: 'Url: template file location'
                 type: string
               widgets:
                 description: 'Widgets:'
