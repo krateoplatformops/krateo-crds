@@ -171,6 +171,14 @@ type TemplateSpec struct {
 	// Owner: template owner
 	// +optional
 	Owner string `json:"owner,omitempty"`
+	
+	// Url: template file location
+	// +optional
+	Url string `json:"url,omitempty"`
+	
+	// endpointName: endpoint name for this template
+	// +optional
+	endpointName string `json:"endpointName,omitempty"`
 
 	// Tags: template tags
 	// +optional
