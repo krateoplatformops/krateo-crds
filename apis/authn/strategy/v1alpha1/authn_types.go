@@ -20,6 +20,12 @@ type StrategyParams struct {
 
 	// Type: type of this strategy handler.
 	Type string `json:"type"`
+
+	// Icon: icon of this strategy handler.
+	Icon string `json:"icon"`
+
+	// Color: color of this strategy handler.
+	Color string `json:"color"`
 }
 
 // +kubebuilder:object:root=true
