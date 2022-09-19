@@ -31,9 +31,9 @@ type Item struct {
 	// Required:
 	Required *bool `json:"required,omitempty"`
 
-	// Visible:
+	// Hidden:
 	// +optional
-	Visible *bool `json:"visible,omitempty"`
+	Hidden *bool `json:"hidden,omitempty"`
 
 	// ReadOnly:
 	// +optional

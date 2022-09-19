@@ -33,8 +33,8 @@ func (in *Item) DeepCopyInto(out *Item) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.Visible != nil {
-		in, out := &in.Visible, &out.Visible
+	if in.Hidden != nil {
+		in, out := &in.Hidden, &out.Hidden
 		*out = new(bool)
 		**out = **in
 	}

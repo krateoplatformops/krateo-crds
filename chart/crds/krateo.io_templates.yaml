@@ -81,6 +81,9 @@ spec:
                           description:
                             description: 'Description:'
                             type: string
+                          hidden:
+                            description: 'Hidden:'
+                            type: boolean
                           key:
                             description: 'Key:'
                             type: string
@@ -130,6 +133,9 @@ spec:
                                 description:
                                   description: 'Description:'
                                   type: string
+                                hidden:
+                                  description: 'Hidden:'
+                                  type: boolean
                                 options:
                                   description: 'Options:'
                                   items:
@@ -160,14 +166,8 @@ spec:
                                 type:
                                   description: 'Type:'
                                   type: string
-                                visible:
-                                  description: 'Visible:'
-                                  type: boolean
                               type: object
                             type: array
-                          visible:
-                            description: 'Visible:'
-                            type: boolean
                         type: object
                       type: array
                     title:
