@@ -1,0 +1,123 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.9.2
+  creationTimestamp: null
+  name: deployments.deployment.krateo.io
+spec:
+  group: deployment.krateo.io
+  names:
+    categories:
+    - managed
+    - krateo
+    - deployments
+    kind: Deployment
+    listKind: DeploymentList
+    plural: deployments
+    singular: deployment
+  scope: Cluster
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: A Deployment is a Krateo deployment API type.
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              description:
+                description: 'Description: deployment description'
+                type: string
+              endpointName:
+                description: 'EndpointName: endpoint name for this deployment'
+                type: string
+              icon:
+                description: 'Icon: deployment icon'
+                type: string
+              links:
+                description: 'Links: deployment plugins'
+                items:
+                  description: Link to Krateo deployment plugins
+                  properties:
+                    icon:
+                      description: 'Icon: link icon'
+                      type: string
+                    title:
+                      description: 'Title: link title'
+                      type: string
+                    type:
+                      description: 'Type: link type'
+                      type: string
+                    value:
+                      description: 'Value: link value (url)'
+                      type: string
+                  required:
+                  - title
+                  - type
+                  - value
+                  type: object
+                type: array
+              owner:
+                description: 'Owner: deployment owner'
+                type: string
+              plugins:
+                description: 'Plugins: deployment plugins'
+                items:
+                  properties:
+                    endpointName:
+                      description: 'EndpointName:'
+                      type: string
+                    icon:
+                      description: 'Icon: link icon'
+                      type: string
+                    title:
+                      description: 'Title: link title'
+                      type: string
+                    type:
+                      description: 'Type: link type'
+                      type: string
+                    value:
+                      description: 'Value: link value (url)'
+                      type: string
+                    values:
+                      description: 'Values:'
+                      items:
+                        type: string
+                      type: array
+                  required:
+                  - title
+                  - type
+                  type: object
+                type: array
+              tags:
+                description: 'Tags: deployment tags'
+                items:
+                  type: string
+                type: array
+              title:
+                description: 'Title: deployment title'
+                type: string
+              url:
+                description: 'Url: deployment file location'
+                type: string
+            required:
+            - title
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true

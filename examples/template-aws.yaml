@@ -3,34 +3,8 @@ kind: Template
 metadata:
   name: krateo-template-awsstack
 spec:
-  deployment:
-    name:
-      title: Name
-      description: The name of the component
-      required: true
-      visible: true
-    namespace:
-      title: Krateo namespace
-      description: Krateo namespace for the stack.
-      required: true
-      visible: true
-    organization:
-      description: STRING
-      title: Ogranization name
-      value: STRING
-      visible: true
-    provider:
-      inherited: false
-      reference: STRING
-      values: ['aaa', 'bbb', 'ccc']
-      visible: true
-    repository:
-      title: Repository name
-      value: STRING
-      visible: true
-    title: Krateo deployment details
   owner: STRING
-  tags: ['ddd', 'eee', 'fff']
+  tags: ["ddd", "eee", "fff"]
   title: Deployment title
   widgets:
     - title: AWS Stack - EKS details
@@ -44,13 +18,13 @@ spec:
           required: true
           key: rdsDataDiskSizeGb
           description: The size of the RDS disk
-          default: '10'
+          default: "10"
     - title: Database
-      description:  Please specify the database name, region, storage type, instance class and engine version.
+      description: Please specify the database name, region, storage type, instance class and engine version.
       properties:
         - type: box
           style: warning
-          value:  Please specify the database name, region, storage type, instance class and engine version.
+          value: Please specify the database name, region, storage type, instance class and engine version.
         - title: Rds Instance Class
           type: radio
           required: true
@@ -61,12 +35,12 @@ spec:
             - title: db.t3.micro
               value: db.t3.micro
               description: 1 core\n2 vCPU\n1 GB of memory
-              cost: '10'
+              cost: "10"
             - title: db.t3.medium
               value: db.t3.medium
               description: 1 core\n2 vCPU\n2 GB of memory
-              cost: '20'
+              cost: "20"
             - title: db.t3.large
               value: db.t3.large
               description: 2 core\n2 vCPU\n8 GB of memory
-              cost: '30'
+              cost: "30"

@@ -44,90 +44,6 @@ type Item struct {
 	ReadOnly *bool `json:"readOnly,omitempty"`
 }
 
-// Link to Krateo template plugins
-type Link struct {
-	// Title: link title
-	Title string `json:"title"`
-
-	// Value: link value (url)
-	Value string `json:"value"`
-
-	// Type: link type
-	Type string `json:"type"`
-
-	// Icon: link icon
-	// +optional
-	Icon string `json:"icon,omitempty"`
-}
-
-type Plugin struct {
-	// Title: link title
-	Title string `json:"title"`
-
-	// Value: link value (url)
-	Value string `json:"value"`
-
-	// Type: link type
-	Type string `json:"type"`
-
-	// Icon: link icon
-	// +optional
-	Icon string `json:"icon,omitempty"`
-
-	// EndpointName:
-	// +optional
-	EndpointName string `json:"endpointName,omitempty"`
-
-	// Values:
-	// +optional
-	Values []string `json:"values,omitempty"`
-}
-
-type Provider struct {
-	// Reference:
-	Reference string `json:"reference"`
-
-	// Inherited:
-	// +optional
-	Inherited *bool `json:"inherited,omitempty"`
-
-	// Values:
-	// +optional
-	Values []string `json:"values,omitempty"`
-
-	// Visible:
-	// +optional
-	Visible *bool `json:"visible,omitempty"`
-
-	// ReadOnly:
-	// +optional
-	ReadOnly *bool `json:"readOnly,omitempty"`
-}
-
-type Deployment struct {
-	// Title:
-	Title string `json:"title"`
-
-	// Name:
-	Name Item `json:"name"`
-
-	// Namespace:
-	Namespace Item `json:"namespace"`
-
-	// Owner:
-	// +optional
-	Owner string `json:"owner,omitempty"`
-
-	// Provider
-	Provider Provider `json:"provider"`
-
-	// Organization:
-	Organization Item `json:"organization"`
-
-	// Repository:
-	Repository Item `json:"repository"`
-}
-
 type WidgetProperties struct {
 	Item `json:",inline"`
 
@@ -183,17 +99,6 @@ type TemplateSpec struct {
 	// Tags: template tags
 	// +optional
 	Tags []string `json:"tags,omitempty"`
-
-	// Links: template plugins
-	// +optional
-	Links []Link `json:"links,omitempty"`
-
-	// Plugins: template plugins
-	// +optional
-	Plugins []Plugin `json:"plugins,omitempty"`
-
-	// Deployment: template deployment
-	Deployment Deployment `json:"deployment,omitempty"`
 
 	// Widgets:
 	Widgets []Widget `json:"widgets"`

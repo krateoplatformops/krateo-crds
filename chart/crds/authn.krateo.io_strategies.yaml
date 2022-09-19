@@ -39,8 +39,14 @@ spec:
           spec:
             description: StrategyParams describe an AuthN Krateo strategy.
             properties:
+              color:
+                description: 'Color: color of this strategy handler.'
+                type: string
               config:
                 description: 'Config: authn configuration data.'
+                type: string
+              icon:
+                description: 'Icon: icon of this strategy handler.'
                 type: string
               name:
                 description: 'Name: descriptive name for this strategy.'
@@ -53,7 +59,9 @@ spec:
                 description: 'Type: type of this strategy handler.'
                 type: string
             required:
+            - color
             - config
+            - icon
             - name
             - strategy
             - type
