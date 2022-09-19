@@ -46,15 +46,14 @@ type Item struct {
 
 type Options struct {
 	// Title:
-	// +optional
-	Title string `json:"title,omitempty"`
+	Title string `json:"title"`
+
+	// Value:
+	Value string `json:"value"`
 
 	// Description:
 	// +optional
 	Description string `json:"description,omitempty"`
-
-	// Value:
-	Value string `json:"value"`
 }
 
 type WidgetProperties struct {
