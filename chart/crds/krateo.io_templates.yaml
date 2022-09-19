@@ -99,9 +99,6 @@ spec:
                           type:
                             description: 'Type:'
                             type: string
-                          value:
-                            description: 'Value:'
-                            type: string
                           values:
                             description: 'Items:'
                             items:
@@ -126,9 +123,6 @@ spec:
                                   type: string
                                 type:
                                   description: 'Type:'
-                                  type: string
-                                value:
-                                  description: 'Value:'
                                   type: string
                                 visible:
                                   description: 'Visible:'

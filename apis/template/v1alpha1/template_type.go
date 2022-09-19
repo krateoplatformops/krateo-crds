@@ -20,10 +20,6 @@ type Item struct {
 	// +optional
 	Description string `json:"description,omitempty"`
 
-	// Value:
-	// +optional
-	Value string `json:"value,omitempty"`
-
 	// Default:
 	// +optional
 	Default string `json:"default,omitempty"`
