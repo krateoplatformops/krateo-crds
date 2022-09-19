@@ -84,6 +84,9 @@ spec:
                           key:
                             description: 'Key:'
                             type: string
+                          options:
+                            description: 'Options:'
+                            type: boolean
                           readOnly:
                             description: 'ReadOnly:'
                             type: boolean
@@ -112,6 +115,9 @@ spec:
                                 description:
                                   description: 'Description:'
                                   type: string
+                                options:
+                                  description: 'Options:'
+                                  type: boolean
                                 readOnly:
                                   description: 'ReadOnly:'
                                   type: boolean

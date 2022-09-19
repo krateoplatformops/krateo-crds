@@ -38,6 +38,23 @@ type Item struct {
 	// ReadOnly:
 	// +optional
 	ReadOnly *bool `json:"readOnly,omitempty"`
+
+	// Options:
+	// +optional
+	Options []Options `json:"options,omitempty"`
+}
+
+type Options struct {
+	// Title:
+	// +optional
+	Title string `json:"title,omitempty"`
+
+	// Description:
+	// +optional
+	Description string `json:"description,omitempty"`
+
+	// Value:
+	Value string `json:"value"`
 }
 
 type WidgetProperties struct {
