@@ -86,7 +86,22 @@ spec:
                             type: string
                           options:
                             description: 'Options:'
-                            type: boolean
+                            items:
+                              properties:
+                                description:
+                                  description: 'Description:'
+                                  type: string
+                                title:
+                                  description: 'Title:'
+                                  type: string
+                                value:
+                                  description: 'Value:'
+                                  type: string
+                              required:
+                              - title
+                              - value
+                              type: object
+                            type: array
                           readOnly:
                             description: 'ReadOnly:'
                             type: boolean
@@ -117,7 +132,22 @@ spec:
                                   type: string
                                 options:
                                   description: 'Options:'
-                                  type: boolean
+                                  items:
+                                    properties:
+                                      description:
+                                        description: 'Description:'
+                                        type: string
+                                      title:
+                                        description: 'Title:'
+                                        type: string
+                                      value:
+                                        description: 'Value:'
+                                        type: string
+                                    required:
+                                    - title
+                                    - value
+                                    type: object
+                                  type: array
                                 readOnly:
                                   description: 'ReadOnly:'
                                   type: boolean

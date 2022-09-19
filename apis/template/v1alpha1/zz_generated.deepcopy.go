@@ -45,8 +45,8 @@ func (in *Item) DeepCopyInto(out *Item) {
 	}
 	if in.Options != nil {
 		in, out := &in.Options, &out.Options
-		*out = new(bool)
-		**out = **in
+		*out = make([]Options, len(*in))
+		copy(*out, *in)
 	}
 }
 
