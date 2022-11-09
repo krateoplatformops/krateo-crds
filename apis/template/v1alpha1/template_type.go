@@ -42,6 +42,10 @@ type Item struct {
 	// Options:
 	// +optional
 	Options []Options `json:"options,omitempty"`
+
+	// Value:
+	// +optional
+	Value string `json:"value,omitempty"`
 }
 
 type Options struct {
