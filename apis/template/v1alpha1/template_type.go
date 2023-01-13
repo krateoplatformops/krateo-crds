@@ -107,11 +107,11 @@ type TemplateSpec struct {
 	// Owner: template owner
 	// +optional
 	Owner string `json:"owner,omitempty"`
-	
+
 	// Url: template file location
 	// +optional
 	Url string `json:"url,omitempty"`
-	
+
 	// EndpointName: endpoint name for this template
 	// +optional
 	EndpointName string `json:"endpointName,omitempty"`
@@ -122,6 +122,10 @@ type TemplateSpec struct {
 
 	// Widgets:
 	Widgets []Widget `json:"widgets"`
+
+	// Defaults:
+	// +optional
+	Defaults map[string]string `json:"defaults,omitempty"`
 }
 
 // +kubebuilder:object:root=true
