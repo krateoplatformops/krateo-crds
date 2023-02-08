@@ -39,6 +39,10 @@ type Item struct {
 	// +optional
 	ReadOnly *bool `json:"readOnly,omitempty"`
 
+	// Disabled:
+	// +optional
+	Disabled *bool `json:"disabled,omitempty"`
+
 	// Options:
 	// +optional
 	Options []Options `json:"options,omitempty"`
